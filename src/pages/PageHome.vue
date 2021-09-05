@@ -3,16 +3,22 @@
   <div v-for="thread in threads" :key="thread.id">
     <h2>{{ thread.title }}</h2>
     <div v-for="postId in thread.posts" :key="postId">
-      <p>{{ getUserById(getPostById(postId).userId).name }}</p>
-      <p>{{ getPostById(postId).text }}</p>
+      <app-comment 
+        :post="getPostById(postId)"
+        :user="getUserById(getPostById(postId).userId)"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import db from "@/data.json";
+import AppComment from "@/components/AppComment";
 
 export default {
+  components: {
+    AppComment,
+  },
   data() {
     return {
       threads: db.threads,
@@ -27,6 +33,7 @@ export default {
     getUserById(id) {
       return this.users.find((u) => u.id === id);
     },
+
   },
 };
 </script>
