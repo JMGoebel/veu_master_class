@@ -3,7 +3,7 @@
   <div v-for="thread in threads" :key="thread.id">
     <h2>{{ thread.title }}</h2>
     <div v-for="postId in thread.posts" :key="postId">
-      <app-comment 
+      <app-comment
         :post="getPostById(postId)"
         :user="getUserById(getPostById(postId).userId)"
       />
@@ -33,7 +33,6 @@ export default {
     getUserById(id) {
       return this.users.find((u) => u.id === id);
     },
-
   },
 };
 </script>
