@@ -6,7 +6,10 @@
       <span class="subText grey">{{ getLocalTime() }}</span>
     </div>
     <div class="comment">{{ post.text }}</div>
-    <div class="controls">controls</div>
+    <div class="controls">
+      <it-button class="icon" icon="thumb_up" color="#2c3e50" outlined />
+      <it-button class="icon" icon="thumb_down" color="#2c3e50" outlined />
+    </div>
   </div>
 </template>
 
@@ -56,11 +59,16 @@ export default {
 }
 .controls {
   grid-column-start: 2;
+  display: flex;
+  margin: 5px;
 }
 .subText {
   font-size: 0.8rem;
 }
 .grey {
   color: dimgray;
+}
+.icon {
+  margin: -5px 5px;
 }
 </style>
