@@ -18,6 +18,7 @@ import db from "@/data.json";
 import moment from "moment";
 
 export default {
+  name: "ThreadComment",
   props: ["post", "user"],
   data() {
     return {

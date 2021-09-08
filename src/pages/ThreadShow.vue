@@ -1,8 +1,9 @@
 <template>
   <h2>{{ thread.title }}</h2>
   <p>{{ getPostById(thread.firstPostId).text }}</p>
+
   <div v-for="postId in thread.posts" :key="postId">
-    <app-comment
+    <thread-comment
       v-if="postId !== thread.firstPostId"
       :post="getPostById(postId)"
       :user="getUserById(getPostById(postId).userId)"
@@ -12,11 +13,12 @@
 
 <script>
 import db from "@/data.json";
-import AppComment from "@/components/AppComment";
+import ThreadComment from "@/components/ThreadComment";
 
 export default {
+  name: "ThreadShow",
   components: {
-    AppComment,
+    ThreadComment,
   },
   data() {
     return {

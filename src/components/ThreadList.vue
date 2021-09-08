@@ -50,6 +50,7 @@
 import db from "@/data.json";
 
 export default {
+  name: "ThreadList",
   props: {
     threads: {
       type: Array,

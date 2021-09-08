@@ -8,6 +8,7 @@ import db from "@/data.json";
 import ThreadList from "../components/ThreadList.vue";
 
 export default {
+  name: "Home",
   components: {
     ThreadList,
   },
