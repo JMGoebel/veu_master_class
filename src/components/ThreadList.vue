@@ -89,10 +89,9 @@ a:hover {
   font-size: 0.9rem;
   font-weight: 500;
   margin: 10px;
-
 }
 .list-item:nth-child(2n) {
-  background-color: #1730a109 ;
+  background-color: #1730a109;
 }
 .list-item-text {
   font-size: 0.9rem;

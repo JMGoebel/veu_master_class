@@ -18,7 +18,7 @@ const routes = [
       if (db.threads.find((t) => t.id === to.params.id)) {
         next();
       } else {
-        next({ 
+        next({
           name: "NotFound",
           params: { pathMatch: to.path.substring(1).split("/") },
           query: to.query,
@@ -31,7 +31,7 @@ const routes = [
     path: "/:pathMatch(.*)*",
     name: "NotFound",
     component: NotFound,
-  }
+  },
 ];
 
 export default routes;
