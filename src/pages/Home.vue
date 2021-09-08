@@ -1,5 +1,5 @@
 <template>
-  <div>Hello</div>
+  <h1 class="title">Welcome to the Forum</h1>
   <thread-list :threads="threads" />
 </template>
 
@@ -18,3 +18,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.title {
+  color: #223250;
+  text-align: center;
+}
+</style>

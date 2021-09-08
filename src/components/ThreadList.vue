@@ -121,5 +121,8 @@ a:hover {
 }
 .title {
   background-color: #223250;
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 0 0 0 30px;
 }
 </style>
