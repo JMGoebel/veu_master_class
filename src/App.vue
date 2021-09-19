@@ -5,8 +5,15 @@
 </template>
 
 <script>
+import db from "@/data.json";
+
 export default {
   name: "App",
+  data() {
+    return {
+      db: db,
+    };
+  },
 };
 </script>
 
