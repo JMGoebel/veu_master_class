@@ -6,6 +6,8 @@
       <span class="subText grey">{{ getLocalTime() }}</span>
     </div>
     <div class="comment">{{ post.text }}</div>
+    <!-- TODO: Remove outline and use fill color on thumb choice once chosen -->
+    <!-- TODO: Thummb click handler -->
     <div class="controls">
       <it-button class="icon" icon="thumb_up" color="#2c3e50" outlined />
       <it-button class="icon" icon="thumb_down" color="#2c3e50" outlined />
