@@ -3,7 +3,7 @@
     <it-avatar class="avatar" :src="user.avatar" square />
     <div class="name subText">
       <strong>{{ user.name }}</strong> |
-      <span class="subText grey">{{ getLocalTime() }}</span>
+      <span class="subText grey"> {{ timeSincePost }} ago </span>
     </div>
     <div class="comment">{{ post.text }}</div>
     <!-- TODO: Remove outline and use fill color on thumb choice once chosen -->
@@ -16,27 +16,35 @@
 </template>
 
 <script>
-import db from "@/data.json";
-import moment from "moment";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 export default {
   name: "ThreadComment",
-  props: ["post", "user"],
+  props: {
+    post: {
+      required: true,
+      type: Object,
+    },
+    user: {
+      required: true,
+      type: Object,
+    },
+  },
   data() {
     return {
-      threads: db.threads,
-      posts: db.posts,
-      users: db.users,
+      timeSincePost: null,
     };
   },
-  methods: {
-    getLocalTime() {
-      const date = moment(this.post.publishedAt).format(
-        "MMMM Do [']YY [@] h:mm a"
-      );
+  created() {
+    /** NOTE: Opted to use this call here instead of a method to stop date update flash */
+    this.timeSincePost = dayjs().from(this.post.publishedAt, true);
 
-      return date;
-    },
+    setInterval(
+      () => (this.timeSincePost = dayjs().from(this.post.publishedAt, true)),
+      30000
+    );
   },
 };
 </script>

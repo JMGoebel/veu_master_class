@@ -33,25 +33,21 @@ export default {
   },
   data() {
     return {
-      thread: {},
-      threads: db.threads,
-      posts: db.posts,
-      users: db.users,
+      thread: null,
     };
   },
   methods: {
     getPostById(id) {
-      console.log('GETTING POST', id)
-      return this.posts.find((p) => p.id === id);
+      return db.posts.find((p) => p.id === id);
     },
     getUserById(id) {
-      console.log('USER', id)
-      return this.users.find((u) => u.id === id);
+      return db.users.find((u) => u.id === id);
     },
   },
   created() {
+    // INIT DATA
     const id = this.$route.params.id;
-    this.thread = this.threads.find((t) => t.id === id);
+    this.thread = db.threads.find((t) => t.id === id);
   },
 };
 </script>
