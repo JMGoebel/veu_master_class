@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO: Issue 15 - Use view template with User Avatar at top and Post title in blue banner -->
   <!-- Thread Title and Content -->
   <h2>{{ thread.title }}</h2>
   <p>{{ getPostById(thread.firstPostId).text }}</p>
@@ -9,8 +10,8 @@
   </div>
 
   <!-- Thread Comments -->
-  <!-- TODO: Sort by date decending by default -->
-  <!-- TODO: Sort by most ranked or post -->
+  <!-- TODO: Issue 13 - Sort by date decending by default -->
+  <!-- TODO: Issue 14 - Add filter by UpVates / Date -->
   <div v-for="postId in thread.posts" :key="postId">
     <thread-comment
       v-if="postId !== thread.firstPostId"

@@ -3,7 +3,9 @@
     <it-avatar class="avatar" :src="user.avatar" square />
     <div class="name subText">
       <strong>{{ user.name }}</strong> |
-      <span class="subText grey"> {{ timeSincePost }} ago </span>
+      <it-tooltip class="tool-tip" :content="getCommentDate()" placement="top">
+        <span class="subText grey"> {{ timeSincePost }} ago </span>
+      </it-tooltip>
     </div>
     <div class="comment">{{ post.text }}</div>
     <!-- TODO: Remove outline and use fill color on thumb choice once chosen -->
@@ -46,6 +48,11 @@ export default {
       30000
     );
   },
+  methods: {
+    getCommentDate() {
+      return dayjs(this.post.publishedAt).format("MM/DD/YYYY h:mm a");
+    },
+  },
 };
 </script>
 
@@ -81,5 +88,8 @@ export default {
 }
 .icon {
   margin: -5px 5px;
+}
+.tool-tip {
+  cursor: pointer;
 }
 </style>
