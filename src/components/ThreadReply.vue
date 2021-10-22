@@ -53,6 +53,7 @@ export default {
         // TODO: Get actual logged in user id
         userId: "L664y3qZSubDbT1R6npC0EEybJ73",
       };
+
       db.posts.push(reply);
       this.currentThread.posts.push(reply.id);
 
