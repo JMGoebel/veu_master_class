@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "dayjs": "^1.10.7",
     "equal-vue": "^0.79.3",
-    "moment": "^2.29.1",
     "primevue": "^3.7.0",
     "uuid": "^8.3.2",
     "vue": "^3.0.0",
