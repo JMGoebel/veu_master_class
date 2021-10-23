@@ -23,8 +23,8 @@
 
 <script>
 import db from "@/data.json";
-import ThreadComment from "@/components/ThreadComment";
-import ThreadReply from "@/components/ThreadReply";
+import ThreadComment from "@/components/thread/ThreadComment";
+import ThreadReply from "@/components/thread/ThreadReply";
 
 export default {
   name: "ThreadShow",

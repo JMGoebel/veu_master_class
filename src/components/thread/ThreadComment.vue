@@ -3,9 +3,7 @@
     <it-avatar class="avatar" :src="user.avatar" square />
     <div class="name subText">
       <strong>{{ user.name }}</strong> |
-      <it-tooltip class="tool-tip" :content="getCommentDate()" placement="top">
-        <span class="subText grey"> {{ timeSincePost }} ago </span>
-      </it-tooltip>
+      <utility-date :timestamp="post.publishedAt" isFromDate />
     </div>
     <div class="comment">{{ post.text }}</div>
     <!-- TODO: Remove outline and use fill color on thumb choice once chosen -->
@@ -18,12 +16,13 @@
 </template>
 
 <script>
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-dayjs.extend(relativeTime);
+import UtilityDate from "../utility/UtilityDate.vue";
 
 export default {
   name: "ThreadComment",
+  components: {
+    UtilityDate,
+  },
   props: {
     post: {
       required: true,
@@ -32,25 +31,6 @@ export default {
     user: {
       required: true,
       type: Object,
-    },
-  },
-  data() {
-    return {
-      timeSincePost: null,
-    };
-  },
-  created() {
-    /** NOTE: Opted to use this call here instead of a method to stop date update flash */
-    this.timeSincePost = dayjs().from(this.post.publishedAt, true);
-
-    setInterval(
-      () => (this.timeSincePost = dayjs().from(this.post.publishedAt, true)),
-      30000
-    );
-  },
-  methods: {
-    getCommentDate() {
-      return dayjs(this.post.publishedAt).format("MM/DD/YYYY h:mm a");
     },
   },
 };
@@ -88,8 +68,5 @@ export default {
 }
 .icon {
   margin: -5px 5px;
-}
-.tool-tip {
-  cursor: pointer;
 }
 </style>

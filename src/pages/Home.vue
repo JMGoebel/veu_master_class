@@ -5,7 +5,7 @@
 
 <script>
 import db from "@/data.json";
-import ThreadList from "../components/ThreadList.vue";
+import ThreadList from "@/components/thread/ThreadList.vue";
 
 export default {
   name: "Home",
