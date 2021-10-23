@@ -13,7 +13,7 @@
           <router-link :to="{ name: 'ThreadShow', params: { id: thread.id } }">
             <span>{{ getUserById(thread.userId).name }}</span>
           </router-link>
-          <span>, time ago.</span>
+          <utility-date :timestamp="thread.publishedAt" isFromDate />
         </div>
       </div>
 
@@ -38,7 +38,7 @@
             </router-link>
           </div>
           <div class="list-item-subtext">
-            <span>, time ago.</span>
+            <utility-date :timestamp="thread.publishedAt" />
           </div>
         </div>
       </div>
@@ -48,6 +48,7 @@
 
 <script>
 import db from "@/data.json";
+import UtilityDate from "../utility/UtilityDate.vue";
 
 export default {
   name: "ThreadList",
@@ -56,6 +57,9 @@ export default {
       type: Array,
       requirded: true,
     },
+  },
+  components: {
+    UtilityDate,
   },
   data() {
     return {
