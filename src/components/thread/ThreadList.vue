@@ -13,7 +13,9 @@
           <router-link :to="{ name: 'ThreadShow', params: { id: thread.id } }">
             <span>{{ getUserById(thread.userId).name }}</span>
           </router-link>
-          <utility-date :timestamp="thread.publishedAt" isFromDate />
+          <span
+            >, <utility-date :timestamp="thread.publishedAt" isFromDate
+          /></span>
         </div>
       </div>
 
