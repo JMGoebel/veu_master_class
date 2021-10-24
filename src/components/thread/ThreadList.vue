@@ -50,7 +50,6 @@
 
 <script>
 import db from "@/data.json";
-import UtilityDate from "../utility/UtilityDate.vue";
 
 export default {
   name: "ThreadList",
@@ -59,9 +58,6 @@ export default {
       type: Array,
       requirded: true,
     },
-  },
-  components: {
-    UtilityDate,
   },
   data() {
     return {

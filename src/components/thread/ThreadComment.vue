@@ -16,13 +16,8 @@
 </template>
 
 <script>
-import UtilityDate from "../utility/UtilityDate.vue";
-
 export default {
   name: "ThreadComment",
-  components: {
-    UtilityDate,
-  },
   props: {
     post: {
       required: true,
