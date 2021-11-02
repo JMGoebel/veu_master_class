@@ -16,7 +16,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 export default {
-  name: "SinceDate",
+  name: "UtilityDate",
   props: {
     timestamp: {
       required: true,
